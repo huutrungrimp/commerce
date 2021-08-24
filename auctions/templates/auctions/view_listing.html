@@ -1,0 +1,25 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Listings</h2>
+
+    {{output}}
+    <div>
+        <table style="width:100%">
+            <tr>
+              <th>Title</th>
+              <th>Owners</th>
+              <th>Price</th>
+              <th>Status</th>
+            </tr>
+            {% for data in listings %}
+            <tr>                
+              <td><a href="{% url 'detail_listing' data.slug%}">{{ data.title }}</a> </td>
+              <td>{{ data.username }}</td>  
+              <td>${{ data.price }}</td>    
+              <td>{{data.status}}</td>         
+            </tr>
+            {% endfor %}
+        </table>        
+    </div>    
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<p>Are your sure to delete the order: {{order}} </p>
+    <form action="" method="post">
+        
+        {% csrf_token%}
+        <button><a href="url 'view_listing' "></a>Cancel</button>
+        <input type="submit" value="Confirm">
+    </form>
+
+    
+{% endblock %}

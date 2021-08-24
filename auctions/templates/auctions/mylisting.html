@@ -1,0 +1,9 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<p>{{username}}</p>
+    <h2>My Listings</h2>
+    {% for item in dataset %}
+        <li>{{item}}  <a href="{% url 'close_listing' item.slug %}">Close</a>       <a href="{% url 'delete_listing' item.slug %}">Delete</a></li>   
+    {% endfor %}    
+{% endblock %}

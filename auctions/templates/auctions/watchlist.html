@@ -1,0 +1,23 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<p>{{username}}</p>
+    <h2>Watchlist</h2>
+    <div>
+        <table style="width:100%">
+            <tr>
+              <th>Title</th>
+              <th>Status</th>
+              <th>Manage</th>
+            </tr>
+            {% for item in dataset %}
+            <tr>                
+              <td><a href="{% url 'detail_listing' item.listing.slug%}">{{ item.listing.title }}</a> </td> 
+              <td>{{item.listing.status}}</td>  
+              <td><a href="{% url 'remove_listing_from_watchlist' item.listing.slug %}">Remove</a></td>
+     
+            </tr>
+            {% endfor %}
+        </table>        
+    </div>    
+{% endblock %}
